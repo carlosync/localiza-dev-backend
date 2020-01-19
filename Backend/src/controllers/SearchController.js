@@ -1,7 +1,7 @@
 const Dev = require('../models/Dev');
 const parseStringAsArray = require('../utils/parseStringAsArray');
 
-// Buscar todos os devs no raio de 50km & Filtrar por tecnologias
+// Buscar todos os devs no raio de 30km & Filtrar por tecnologias
 module.exports = {
     async index(req, res){
        const { latitude, longitude, techs } = req.query;
@@ -17,7 +17,7 @@ module.exports = {
                        type: 'Point',
                        coordinates: [longitude, latitude],
                    },
-                   $maxDistance: 50000,
+                   $maxDistance: 30000,
                },
            },
        });
